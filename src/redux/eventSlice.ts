@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { EventState } from '../types';
 import { checkEventData, saveEventData } from '@/utils';
 
-const initialState: EventState[] = typeof window !== "undefined" ? checkEventData() : [];
+const initialState: EventState[] = [];
 
 const eventSlice = createSlice({
     name: 'events',
@@ -22,6 +22,11 @@ const eventSlice = createSlice({
             const currentState = state.filter((event) => event.id !== action.payload);
             saveEventData(currentState);
             return currentState;
+        },
+        loadEvents: (state) => {
+            const events = checkEventData();
+            if (events) return events;
+            return state;
         }
     }
 });

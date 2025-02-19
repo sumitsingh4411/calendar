@@ -24,8 +24,12 @@ const EventForm = ({ selectedDate, event, onClose }: EventFormProps) => {
         end: event?.end ? getTime(event.end) : '10:00'
     });
 
-    const handleSubmit = () => {
-        if (!selectedDate) return;
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!selectedDate) {
+            toast.error('Please select a date');
+            return;
+        }
         const start = new Date(selectedDate);
         const end = new Date(selectedDate);
         const { title, description, start: startTime, end: endTime } = eventFormData;

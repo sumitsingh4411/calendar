@@ -21,12 +21,13 @@ const DayCell = (props: DayCellProps) => {
     return (
         <div
             className={`
-        min-h-[100px] bg-gray-900 p-2 cursor-pointer border border-gray-800
-        ${!currentMonth && 'opacity-40'}
-        ${isToday && 'border-l-2 border-blue-500 bg-blue-900/20'}
-        ${isSelected && 'ring-2 ring-blue-500 bg-blue-900/30'}
-        hover:bg-gray-800 transition-colors
-      `}
+                min-h-[100px] bg-gray-900 p-2 cursor-pointer
+                border border-solid border-gray-700 
+                ${!currentMonth && 'opacity-40'}
+                ${isToday && 'border-l-4 border-l-blue-500 bg-blue-900/20'}
+                ${isSelected && 'ring-2 ring-blue-500 bg-blue-900/30'}
+                hover:bg-gray-800 transition-colors
+              `}
             onClick={() => onSelect(date)}
         >
             <div className="text-right text-sm">

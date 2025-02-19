@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DayCell from './DayCell';
 import EventForm from './EventForm';
@@ -9,6 +9,7 @@ import { EventState } from '@/types';
 import { daysOfWeek } from '@/common';
 import Header from './Header';
 import { getDaysInMonth } from '@/utils';
+import { eventActions } from '@/redux/eventSlice';
 
 const Calendar = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -30,6 +31,10 @@ const Calendar = () => {
     const currentDateObj = new Date(currentDate);
     const daysInMonth = getDaysInMonth(currentDateObj);
 
+    useEffect(() => {
+        dispatch(eventActions.loadEvents());
+    }, []);
+    
     return (
         <div className="max-w-6xl mx-auto p-4">
             <Header />

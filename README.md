@@ -1,24 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calendar App
+
+A modern calendar application built with Next.js 14, featuring a sleek dark mode interface and intuitive event management.
+
+## Features
+
+- 🌙 Beautiful dark mode interface
+- 📅 Monthly calendar view with event management
+- ⚡ Real-time event updates with Redux
+- 🕒 Time-based event scheduling
+- 📱 Fully responsive design
+- 🎨 Gradient headers and modern UI
+
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Typography**: [Geist Font](https://vercel.com/font)
+- **Type Safety**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/calendar-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+cd calendar-app
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+## Project Structure
+
+```
+src/
+├── app/                 # Next.js app directory
+│   ├── layout.tsx      # Root layout
+│   ├── page.tsx        # Home page
+│   └── globals.css     # Global styles
+├── components/         # React components
+│   ├── Calendar.tsx    # Main calendar component
+│   ├── DayCell.tsx    # Individual day cell
+│   ├── EventForm.tsx  # Event creation/editing form
+│   └── Header.tsx     # Calendar header
+├── redux/             # Redux state management
+│   ├── store.ts
+│   ├── calendarSlice.ts
+│   └── eventSlice.ts
+├── types/             # TypeScript types
+└── utils/            # Utility functions
+```
+
+## Features in Detail
+
+### Calendar View
+- Monthly calendar with day cells
+- Current day highlighting
+- Event indicators
+- Smooth transitions
+
+### Event Management
+- Create and edit events
+- Set event times
+- Delete events with confirmation
+- Time-sorted event display
+
+### User Interface
+- Dark mode optimized
+- Responsive design
+- Clean and modern aesthetics
+- Intuitive navigation
+
+## Development
+
+The app is built with modern web technologies and follows best practices:
+
+- TypeScript for type safety
+- Redux for state management
+- Tailwind CSS for styling
+- Component-based architecture
+- Responsive design principles
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Learn More
 

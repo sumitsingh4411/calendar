@@ -21,7 +21,7 @@ const Calendar = () => {
         setEditingEvent(event);
     };
 
-    const handleDateSelection = (date: Date, event: React.MouseEvent) => {
+    const handleDateSelection = (date: Date) => {
         const dateString = date.toISOString();
         dispatch(calendarActions.setSelectedDate(dateString));
     };

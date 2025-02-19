@@ -1,6 +1,6 @@
 # Calendar App
 
-A modern calendar application built with Next.js 14, featuring a sleek dark mode interface and intuitive event management.
+A modern calendar application built with Next.js 15, featuring a sleek dark mode interface and intuitive event management.
 
 ## Features
 
@@ -13,7 +13,7 @@ A modern calendar application built with Next.js 14, featuring a sleek dark mode
 
 ## Tech Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Framework**: [Next.js 15](https://nextjs.org/)
 - **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Typography**: [Geist Font](https://vercel.com/font)

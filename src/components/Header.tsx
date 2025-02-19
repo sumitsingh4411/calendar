@@ -7,6 +7,14 @@ const Header = () => {
   const { currentDate } = useSelector((state: RootState) => state.calendar);
   const currentDateObj = new Date(currentDate);
 
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('en-US', { 
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-2xl">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
@@ -18,7 +26,7 @@ const Header = () => {
             ⬅️
           </button>
           <h1 className="text-lg sm:text-2xl font-bold text-white tracking-wide">
-            {currentDateObj.toLocaleString('default', { 
+            {currentDateObj.toLocaleString('en-US', { 
               month: 'long', 
               year: 'numeric' 
             }).toUpperCase()}
@@ -31,11 +39,7 @@ const Header = () => {
           </button>
         </div>
         <div className="text-white/60 text-xs sm:text-sm ml-12 sm:ml-0">
-          {new Date().toLocaleDateString('default', { 
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric'
-          })}
+          {formatDate(new Date())}
         </div>
       </div>
     </div>

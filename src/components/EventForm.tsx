@@ -4,9 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { EventState } from '../types';
 import { eventActions } from '../redux/eventSlice';
 import { AppDispatch } from '@/redux/store';
-import Modal from '@/common/Modal';
 import { toast } from 'react-hot-toast';
 import { getTime } from '@/utils';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 
 interface EventFormProps {
     selectedDate: string | null;
@@ -132,29 +132,12 @@ const EventForm = ({ selectedDate, event, onClose }: EventFormProps) => {
                     </button>
                 </div>
 
-                {showDeleteConfirm && (
-                    <Modal>
-                        <p className="text-lg font-medium text-white">Delete this event?</p>
-                        <div className="flex justify-end gap-3">
-                            <button
-                                type="button"
-                                onClick={() => setShowDeleteConfirm(false)}
-                                className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded transition-colors"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    dispatch(eventActions.deleteEvent(event!.id));
-                                    onClose();
-                                }}
-                                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
-                            >
-                                Delete
-                            </button>
-                        </div>
-                    </Modal>
+                {showDeleteConfirm && event && (
+                    <DeleteConfirmationModal
+                        onClose={() => setShowDeleteConfirm(false)}
+                        setShowDeleteConfirm={setShowDeleteConfirm}
+                        event={event}
+                    />
                 )}
             </form>
         </div>

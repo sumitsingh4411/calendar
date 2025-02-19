@@ -4,7 +4,7 @@ interface DayCellProps {
     date: Date;
     events: EventState[];
     isSelected: boolean;
-    onSelect: (date: Date, event: React.MouseEvent) => void;
+    onSelect: (date: Date) => void;
     onEditEvent: (event: EventState) => void;
 }
 
@@ -27,7 +27,7 @@ const DayCell = (props: DayCellProps) => {
         ${isSelected && 'ring-2 ring-blue-500 bg-blue-900/30'}
         hover:bg-gray-800 transition-colors
       `}
-            onClick={(e) => onSelect(date, e)}
+            onClick={() => onSelect(date)}
         >
             <div className="text-right text-sm">
                 <span className={isToday ? 'text-blue-400 font-bold' : 'text-gray-400'}>{date.getDate()}</span>
@@ -40,8 +40,7 @@ const DayCell = (props: DayCellProps) => {
                 {sortedEvents.map((event) => (
                     <div
                         key={event.id}
-                        className={`text-xs p-1.5 rounded cursor-pointer bg-blue-900/50 text-blue-100 hover:opacity-80 transition-opacity
-            `}
+                        className="text-xs p-1.5 rounded cursor-pointer bg-blue-900/50 text-blue-100 hover:opacity-80 transition-opacity"
                         onClick={() => {
                             onEditEvent(event);
                         }}

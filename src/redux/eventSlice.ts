@@ -19,7 +19,7 @@ const eventSlice = createSlice({
             saveEventData(state);
         },
         deleteEvent: (state, action: PayloadAction<string>) => {
-            let currentState = state.filter((event) => event.id !== action.payload);
+            const currentState = state.filter((event) => event.id !== action.payload);
             saveEventData(currentState);
             return currentState;
         }

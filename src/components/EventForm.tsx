@@ -134,7 +134,10 @@ const EventForm = ({ selectedDate, event, onClose }: EventFormProps) => {
 
                 {showDeleteConfirm && event && (
                     <DeleteConfirmationModal
-                        onClose={() => setShowDeleteConfirm(false)}
+                        onClose={() => {
+                            setShowDeleteConfirm(false);
+                            onClose();
+                        }}
                         setShowDeleteConfirm={setShowDeleteConfirm}
                         event={event}
                     />

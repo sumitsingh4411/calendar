@@ -3,10 +3,10 @@ import { calendarReducer } from './calendarSlice';
 import { eventReducer } from './eventSlice';
 
 export const store = configureStore({
-  reducer: {
-    calendar: calendarReducer,
-    events: eventReducer,
-  },
+    reducer: {
+        calendar: calendarReducer,
+        events: eventReducer
+    }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

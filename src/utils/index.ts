@@ -1,3 +1,5 @@
+import { EventState } from '@/types';
+
 export const getDaysInMonth = (date: Date): Date[] => {
     const year = date.getFullYear();
     const month = date.getMonth();
@@ -35,4 +37,12 @@ export const getDaysInMonth = (date: Date): Date[] => {
 
 export const getTime = (date: string) => {
     return new Date(date).toTimeString().slice(0, 5);
+};
+
+export const checkEventData = () => {
+    const eventData = window?.localStorage?.getItem('eventsData');
+    return eventData ? JSON.parse(eventData) : [];
+};
+export const saveEventData = (data: EventState[]) => {
+    window?.localStorage?.setItem('eventsData', JSON.stringify(data));
 };
